@@ -1,1 +1,1 @@
-# pypi_recreate
+# pypi-recreate
