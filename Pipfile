@@ -1,0 +1,17 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+passlib = "*"
+Flask = "*"
+SQLAlchemy = "*"
+pytest = "*"
+pytest-cov = "*"
+WebTest = "*"
+
+[requires]
+python_version = "3.7"
