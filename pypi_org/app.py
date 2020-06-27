@@ -1,4 +1,11 @@
+import os
+import sys
 import flask
+folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, folder)
+
+
+from infrastructure.view_modifiers import response
 
 app = flask.Flask(__name__)
 
@@ -6,9 +13,6 @@ app = flask.Flask(__name__)
 app.config['ENV'] = 'development'
 app.config['DEBUG'] = True
 app.config['TESTING'] = True
-
-<style>
-</style>
 
 def get_latest_packages():
     return[
@@ -18,9 +22,15 @@ def get_latest_packages():
     ]
 
 @app.route('/')
+@response(template_file='home/index.html')
 def index():
     test_packages = get_latest_packages()
-    return flask.render_template('index.html', packages=test_packages)
+    return {'packages': test_packages}
+
+@app.route('/about')
+@response(template_file='home/index.html')
+def about():
+    return {}
 
 if __name__ == '__main__':
     app.run(debug=True)
