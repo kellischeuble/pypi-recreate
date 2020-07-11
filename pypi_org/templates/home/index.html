@@ -1,21 +1,20 @@
-{% extends "/shared/_layout.html" %}
+{% extends "shared/_layout.html" %}
 {% block main_content %}
 
-<h1>Python Package Index</h>
+    <h1>Python Package Index</h1>
+
     <h2>Packages</h2>
-    TODO: show    Packages
+
     {% for p in packages %}
-    <div>
-        <span class="title">
-            {{p.name}}
-        </span>
-        <span class="version">
-            {{ p.version }}
-        </span>
+
+        <div>
+    <span class="title">
+        {{ p.name.upper() }}
+    </span>
+            <span class="version">
+        {{ p.version }}
+    </span>
+        </div>
+
     {% endfor %}
-
-    {% endblock %}
-
-{% block additional_css %}
-<!-- This would be css from about.html -->
 {% endblock %}
